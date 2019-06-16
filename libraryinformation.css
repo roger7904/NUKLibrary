@@ -1,0 +1,174 @@
+.wrap{
+    width: 1024px;
+    font-family: Segoe UI;
+    color:#707070;
+    margin:0 auto;
+  }
+  .title{
+    width: 400px;
+    margin:0 auto;
+  }
+  .logout{
+    float: left;
+    margin-left: 180px;
+    margin-top: 20px;
+  }
+  .logout h2{
+    float: left;
+    margin-left: 20px;
+  }
+  .title img{
+    float: left; 
+    padding-right:20px;
+  }
+  .title h1{
+    float: left;
+    font-weight: bold;
+    text-align: center;
+    color:#707070;
+  }
+  a{
+    color:#707070;
+    text-decoration:none;
+  }
+  .clear{
+    clear: both;
+  }
+  .information{
+    height: 70px;
+    border-bottom:3px solid #F5F290;
+  }
+  .information h2{
+    font-size:25px;
+    text-align: bottom;
+    float: left;
+    margin-top:37px;
+    margin-left: 85px;
+    font-weight: 900;
+  }
+  .information h2 a:hover{
+    background: #F5F290;
+  }
+  .opentime h2{
+      width: 156px;
+      height: 57px;
+      background: #F5F290;
+      margin-top: 50px;
+      margin-left: 50px;
+      text-align: center;
+      line-height: 57px;
+  }
+  .opentimepic{
+      width: 600px;
+      height: 200px;
+      margin-left: 250px;
+      margin-top: 10px;
+  }
+  .opentimepic img{
+      width: 600px;
+      height: 200px;
+  }
+  .contactinformation{
+    width: 156px;
+    height: 57px;
+    background: #F5F290;
+    margin-left: 50px;
+    text-align: center;
+    line-height: 57px;
+  }
+  .phone{
+      width: 300px;
+      height: 200px;
+      margin-left: 250px;
+      margin-top: 10px;
+      font-weight: border;
+      float: left;
+  }
+  .phone h2{
+      font-size: 35px;
+  }
+  .phone h3{
+      padding-left: 90px;
+      font-size: 20px;
+  }
+  .email2{
+    width: 400px;
+    height: 200px;
+    margin-top: 10px;
+    font-weight: border;
+    float: left;
+  }
+  .email2 h2{
+    font-size: 35px;
+  }
+  .email2 h3{
+    padding-left: 200px;
+    font-size: 20px;
+  }
+  .bottom{
+    height: 20px;
+    color:#aaaaaa;
+    font-size: 10px;
+    text-align: center;
+    }
+    .copyright{
+    text-align: center;
+    border-right:2px solid #aaaaaa;
+    float: left;
+    margin-left: 250px;
+    margin-top: 10px;
+    }
+    .date{
+    float: left;
+    margin-left: 15px;
+    border-right:2px solid #aaaaaa;
+    margin-top: 10px;
+    }
+    .cellphone{
+    float: left;
+    margin-left: 15px;
+    border-right:2px solid #aaaaaa;
+    margin-top: 10px;
+    }
+    .email{
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
+    }
+    .inserver{
+      width:100px;
+      padding-left:50px;
+    }
+    .inserver ul{
+      list-style-type:none;
+      font-weight: bold;
+      color:#707070;
+      font-size:20px;
+      padding-left:5px;
+    }
+    .inserver li{
+      border-bottom:2px solid #707070;
+      width:120px;
+      height:25px;
+      margin-left:-51px;
+      padding-left:18px;
+      padding-top:10px; 
+      letter-spacing: 8px;
+    }
+    .inserver li a:hover{
+      background: rgb(219, 219, 215);
+    }
+    .jq-block {
+      position: relative;
+      float: left;
+    }
+    .servers {
+      float: none;
+    }
+    .inserver {
+      position: absolute;
+      left: 59px;   /* 根據你的版型再微調 */
+      top: 70px;  /* 根據你的版型再微調 */
+      /* 再加自己要的 background */
+      background:#F5F290;
+    }

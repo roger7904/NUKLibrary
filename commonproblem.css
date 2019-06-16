@@ -1,0 +1,141 @@
+.wrap{
+    width: 1024px;
+    font-family: Segoe UI;
+    color:#707070;
+    margin:0 auto;
+  }
+  .logout{
+    float: left;
+    margin-left: 180px;
+    margin-top: 20px;
+  }
+  .logout h2{
+    float: left;
+    margin-left: 20px;
+  }
+  .title{
+    width: 400px;
+    margin:0 auto;
+  }
+  .title img{
+    float: left; 
+    padding-right:20px;
+  }
+  .title h1{
+    float: left;
+    font-weight: bold;
+    text-align: center;
+    color:#707070;
+  }
+  a{
+    color:#707070;
+    text-decoration:none;
+  }
+  .clear{
+    clear: both;
+  }
+  .information{
+    height: 70px;
+    border-bottom:3px solid #F5F290;
+  }
+  .information h2{
+    font-size:25px;
+    text-align: bottom;
+    float: left;
+    margin-top:37px;
+    margin-left: 85px;
+    font-weight: 900;
+  }
+  .information h2 a:hover{
+    background: #F5F290;
+  }
+  .QA h2{
+    width: 156px;
+    height: 57px;
+    margin-top: 50px;
+    margin-left: 50px;
+    text-align: center;
+    line-height: 57px;
+    border-bottom: 2px solid #F5F290;
+}
+.question h2{
+    width: 156px;
+    height: 57px;
+    margin-top: 30px;
+    margin-left: 50px;
+    text-align: center;
+    line-height: 57px;
+    border-bottom: 2px solid #F5F290;
+    float: left;
+}
+.bottom{
+    height: 20px;
+    margin-top: 80px;
+  }
+  .copyright{
+    width: 230px;
+    border-right:2px solid #707070;
+    float: left;
+    margin-left: 50px;
+    margin-top: 80px;
+  }
+  .date{
+    float: left;
+    width: 220px;
+    margin-left: 15px;
+    border-right:2px solid #707070;
+    margin-top: 80px;
+  }
+  .cellphone{
+    float: left;
+    width: 220px;
+    margin-left: 15px;
+    border-right:2px solid #707070;
+    margin-top: 80px;
+  }
+  .email{
+    float: left;
+    width: 220px;
+    margin-left: 15px;
+    margin-top: 80px;
+  }
+  .inserver{
+    width:100px;
+    padding-left:50px;
+  }
+  .inserver ul{
+    list-style-type:none;
+    font-weight: bold;
+    color:#707070;
+    font-size:20px;
+    padding-left:5px;
+  }
+  .inserver li{
+    border-bottom:2px solid #707070;
+    width:120px;
+    height:25px;
+    margin-left:-51px;
+    padding-left:18px;
+    padding-top:10px; 
+    letter-spacing: 8px;
+  }
+  .inserver li a:hover{
+    background: rgb(219, 219, 215);
+  }
+  .jq-block {
+    position: relative;
+    float: left;
+  }
+  .servers {
+    float: none;
+  }
+  .inserver {
+    position: absolute;
+    left: 59px;   /* 根據你的版型再微調 */
+    top: 70px;  /* 根據你的版型再微調 */
+    /* 再加自己要的 background */
+    background:#F5F290;
+  }
+  .table{
+    margin: 30px auto;
+  }

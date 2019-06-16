@@ -1,0 +1,151 @@
+.wrap{
+    width: 1024px;
+    font-family: Segoe UI;
+    color:#707070;
+    margin:0 auto;
+  }
+  .title{
+    width: 400px;
+    margin:0 auto;
+    position: relative;
+  }
+  .title img{
+    float: left; 
+    padding-right:20px;
+  }
+  .title h1{
+    float: left;
+    font-weight: bold;
+    text-align: center;
+    color:#707070;
+  }
+  a{
+    color:#707070;
+    text-decoration:none;
+  }
+  .hello{
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position: absolute;
+    left:950px;
+  }
+  .logout{
+      width: 80px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      float:left;
+      position: absolute;
+      left:1100px;
+  }
+  .add{
+      margin:30px auto;
+      width: 600px;
+      text-align: center;
+  }
+  .table{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:0 auto;
+  }
+  .table img{
+    width: 300px;
+    height: 400px;
+  }
+  .tablee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:80px auto;
+    width: 600px;
+    text-align: center;
+  }
+  .tablee img{
+    width: 300px;
+    height: 400px;
+  }
+  .tableee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:80px auto;
+    width: 800px;
+    text-align: center;
+  }
+  .tableee img{
+    width: 300px;
+    height: 400px;
+  }
+  .tableeee a:hover{
+    background: #F5F290;
+  }
+  .tableeee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:80px auto;
+    width: 800px;
+    height: 300px;
+    text-align: center;
+  }
+  .tableeeee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:80px auto;
+    width: 800px;
+    height: 100px;
+    text-align: center;
+  }
+  .tableeeee input[type="text"]{
+    padding:5px 200px;
+    border:1 none;
+    -webkit-border-radius: 5px;
+    width: 250px;
+  }
+  .tableeeee input[type="submit"]{
+    padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+  .tableeeeee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:200px auto;
+    width: 800px;
+    height: 20px;
+    text-align: center;
+  }
+  .tableeeeee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:80px auto;
+    width: 800px;
+    text-align: center;
+  }
+  .ad{
+    margin:30px auto;
+    width: 600px;
+    text-align: center;
+    font-family: Segoe UI;
+    color:#707070;
+}
+.ad input[type="submit"]{
+  padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+.analysis{
+  float: left;
+  position: relative;
+  right: 60px;
+  top:10px;
+}
+.ana{
+  margin-left: 500px;
+}

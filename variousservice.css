@@ -1,0 +1,113 @@
+.wrap{
+  width: 1024px;
+  font-family: Segoe UI;
+  color:#707070;
+  margin:0 auto;
+}
+.title{
+  width: 400px;
+  margin:0 auto;
+}
+.title img{
+  float: left; 
+  padding-right:20px;
+}
+.title h1{
+  float: left;
+  font-weight: bold;
+  text-align: center;
+  color:#707070;
+}
+a{
+  color:#707070;
+  text-decoration:none;
+}
+.clear{
+  clear: both;
+}
+.information{
+  height: 70px;
+  border-bottom:3px solid #F5F290;
+}
+.information h2{
+  font-size:25px;
+  text-align: bottom;
+  float: left;
+  margin-top:37px;
+  margin-left: 85px;
+  font-weight: 900;
+}
+.information h2 a:hover{
+  background: #F5F290;
+}
+.readerservice h2{
+    width: 156px;
+    height: 57px;
+    background: #F5F290;
+    margin-top: 50px;
+    margin-left: 50px;
+    text-align: center;
+    line-height: 57px;
+}
+.box{
+    width: 800px;
+    margin-left:200px;
+}
+.search{
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+.record,.recommend{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 60px;
+}
+.comment{
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin-top: 50px;
+}
+.buy,.back{
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin-left: 60px;
+  margin-top: 50px;
+}
+.search img,.record img,.recommend img,.comment img,.buy img,.back img{
+  width: 200px;
+  height: 200px;
+}
+.bottom{
+  height: 20px;
+  color:#aaaaaa;
+  font-size: 10px;
+  text-align: center;
+}
+.copyright{
+  text-align: center;
+  border-right:2px solid #aaaaaa;
+  float: left;
+  margin-left: 250px;
+  margin-top: 10px;
+}
+.date{
+  float: left;
+  margin-left: 15px;
+  border-right:2px solid #aaaaaa;
+  margin-top: 10px;
+}
+.cellphone{
+  float: left;
+  margin-left: 15px;
+  border-right:2px solid #aaaaaa;
+  margin-top: 10px;
+}
+.email{
+  float: left;
+  margin-left: 15px;
+  margin-top: 10px;
+}

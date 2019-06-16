@@ -1,0 +1,275 @@
+.wrap{
+    width: 1024px;
+    font-family: Segoe UI;
+    color:#707070;
+    margin:0 auto;
+  }
+  .title{
+    width: 400px;
+    margin:0 auto;
+  }
+  .title img{
+    float: left; 
+    padding-right:20px;
+  }
+  .title h1{
+    float: left;
+    font-weight: bold;
+    text-align: center;
+    color:#707070;
+  }
+  a{
+    color:#707070;
+    text-decoration:none;
+  }
+  .clear{
+    clear: both;
+  }
+  .information{
+    height: 70px;
+    border-bottom:3px solid #F5F290;
+  }
+  .information h2{
+    font-size:25px;
+    text-align: bottom;
+    float: left;
+    margin-top:37px;
+    margin-left: 85px;
+    font-weight: 900;
+  }
+  .information h2 a:hover{
+    background: #F5F290;
+  }
+  .hello{
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position: absolute;
+    left:950px;
+  }
+  .logout{
+      width: 80px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      float:left;
+      position: absolute;
+      left:1100px;
+  }
+  .services{
+      float: left;
+      width: 150px;
+  }
+  .services a{
+    border-bottom: 3px #F5F290 solid;
+  }
+  .services a:hover{
+    background: #F5F290;
+  }
+  .services h2{
+      width: 100px;
+      margin-top: 40px;
+  }
+  .search{
+    font-family: Segoe UI;
+    color:#707070;
+    margin: 100px 300px;
+    float: left;
+    text-align: center;
+  }
+  .option{
+    width: 250px;
+    height: 50px;
+    font-family: Segoe UI;
+    margin:0 200px;
+  }
+  .option select{
+    width: 250px;
+    font-family: Segoe UI;
+    color:#707070;
+  }
+  .text{
+    border:1 none;
+    -webkit-border-radius: 5px;
+    font-size: 15px;
+  }
+  .tablee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:80px auto;
+    width: 800px;
+    text-align: center;
+  }
+  .book{
+    font-family: Segoe UI;
+    color:#707070;
+    margin:50px 400px;
+    width: 600px;
+    text-align: center;
+  }
+  .table{
+    float: left;
+    width: 700px;
+    height: 600px;
+    text-align: center;
+    margin:0 auto;
+    border-bottom:2px solid #F5F290;
+  }
+  .data{
+    width: 700px;
+    height: 600px;
+    margin:180px auto;
+    font-family: Segoe UI;
+    color:#707070;
+    text-align: center;
+  }
+  .bottom{
+    height: 20px;
+    color:#aaaaaa;
+    font-size: 10px;
+    text-align: center;
+  }
+  .copyright{
+    text-align: center;
+    border-right:2px solid #aaaaaa;
+    float: left;
+    margin-left: 250px;
+    margin-top: 10px;
+  }
+  .date{
+    float: left;
+    margin-left: 15px;
+    border-right:2px solid #aaaaaa;
+    margin-top: 10px;
+  }
+  .cellphone{
+    float: left;
+    margin-left: 15px;
+    border-right:2px solid #aaaaaa;
+    margin-top: 10px;
+  }
+  .email{
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+  .read{
+    font-family: Segoe UI;
+    color:#707070;
+    margin: 80px 200px;
+    text-align: center;
+  }
+  .tableee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin-top:20px;
+    margin-left: 300px;
+    width: 600px;
+    text-align: center;
+  }
+  .passwd{
+    font-family: Segoe UI;
+    color:#707070;
+    margin: 80px 200px;
+    text-align: center;
+  }
+  .passwd input[type="text"]{
+    padding:5px 200px;
+    border:1 none;
+    -webkit-border-radius: 5px;
+    width: 250px;
+  }
+  .passwd input[type="submit"]{
+    padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+  .read input[type="text"]{
+    padding:5px 80px;
+    border:1 none;
+    -webkit-border-radius: 5px;
+    width: 250px;
+  }
+  .read input[type="submit"]{
+    padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+  .tablee input[type="submit"],.tablee input[type="reset"]{
+    padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+  .data input[type="submit"]{
+    padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+  .choose{
+    margin:80px auto;
+    width: 800px;
+    text-align: center;
+  }
+  .tableeee{
+    font-family: Segoe UI;
+    color:#707070;
+    margin-top:20px;
+    margin-left: 300px;
+    width: 600px;
+    text-align: center;
+    float: left;
+  }
+  .choose input[type="submit"]{
+    padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+  .choose select{
+    font-family: Segoe UI;
+    color:#707070;
+    width: 400px;
+    height: 30px;
+    text-align: center;
+  }
+  .ead{
+    font-family: Segoe UI;
+    color:#707070;
+    margin-top: 80px;
+    margin-left: 250px;
+    text-align: center;
+  }
+  .ead input[type="text"]{
+    padding:5px 80px;
+    border:1 none;
+    -webkit-border-radius: 5px;
+    width: 250px;
+  }
+  .ead input[type="submit"]{
+    padding:5px 30px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+  .tablee img{
+    width: 300px;
+    height: 400px;
+  }
