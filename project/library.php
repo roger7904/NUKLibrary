@@ -7,7 +7,7 @@ session_start();
                 FROM reserve rr";
            if ( $result = mysqli_query($link, $SQL) ) {
              while( $row = mysqli_fetch_assoc($result) ){
-             $nn=$row[reserveno];
+             $nn=$row['reserveno'];
          }
        }
        $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
@@ -15,7 +15,7 @@ session_start();
              FROM record r";
         if ( $result = mysqli_query($link, $SQL) ) {
           while( $row = mysqli_fetch_assoc($result) ){
-          $n=$row[account];
+          $n=$row['account'];
       }
     }
 ?>
@@ -49,14 +49,14 @@ session_start();
         $n2=array();
         $n3=array();
          $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
-         $SQL="SELECT recordname,recordurl
+         $SQL="SELECT recordname, MIN(recordurl) as recordurl
                FROM record
                GROUP BY recordname
                ORDER BY COUNT(recordname) DESC LIMIT 4";
           if ( $result = mysqli_query($link, $SQL) ) {
             while( $row = mysqli_fetch_assoc($result) ){
-            $n1[$i]=$row[recordname];
-            $n2[$i]=$row[recordurl];
+            $n1[$i]=$row['recordname'];
+            $n2[$i]=$row['recordurl'];
             $i++;
         }
       }
@@ -167,11 +167,14 @@ session_start();
     </div>
     <div class="clear"></div>
     <?php
-          $account=$_COOKIE["user"];
-          if(isset($_SESSION["user"])){
-          echo "<h2 class='roger'>".$account."您好"."</h2>";
-          }
-        ?>
+      $account = isset($_COOKIE['user']) ? $_COOKIE['user'] : '';
+      //$account=$_COOKIE['user'];
+      if(isset($_SESSION['user'])){
+        echo "<h2 class='roger'>".$account."您好"."</h2>";
+      }else{
+        // donothing
+      }
+    ?>
     <div class="information">
       <h2><a href="libraryinformation.php">本館資訊</a></h2>
       <h2><a href="aboutus.php">關於我們</a></h2>
@@ -248,7 +251,13 @@ session_start();
           <img src="<?=$n2[2]?>"><?=$n1[2]?></a>
         </div>
         <div class="book4">
-          <img src="<?=$n2[3]?>"><?=$n1[3]?></a>
+          <?php if (isset($n2[3])) : ?>
+            <img src="<?= $n2[3] ?>">
+          <?php endif; ?>
+
+          <?php if (isset($n1[3])) : ?>
+            <?= $n1[3] ?>
+          <?php endif; ?>
         </div>
       </div> 
     </div>
@@ -274,9 +283,12 @@ session_start();
 <?php
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
-  require '/mailer/src/Exception.php';    
-  require '/mailer/src/PHPMailer.php';
-  require '/mailer/src/SMTP.php';
+  //require '/mailer/src/Exception.php';  
+  //require '/mailer/src/PHPMailer.php';
+  //require '/mailer/src/SMTP.php';
+  require 'Exception.php';   
+  require 'PHPMailer.php';
+  require 'SMTP.php';
   // Instantiation and passing `true` enables exceptions
   $link = mysqli_connect( 
     'localhost',  // MySQL主機名稱 
@@ -288,8 +300,8 @@ session_start();
   $sqltime="select sendname,sendmail,sendtime from send";
   if ( $resulttime = mysqli_query($link, $sqltime) ) {
       while( $row = mysqli_fetch_assoc($resulttime) ){
-        if(isset($row[sendtime])){
-          if(($now-$row[sendtime])>30 && ($now-$row[sendtime])<250){
+        if(isset($row['sendtime'])){
+          if(($now-$row['sendtime'])>30 && ($now-$row['sendtime'])<250){
               try {
                   //Server settings
                   $mail->SMTPDebug = 0;                                       // Enable verbose debug output

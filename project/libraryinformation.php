@@ -29,12 +29,14 @@
     </div>
     <div class="logout">
     <?php
-          session_start();
-          if(isset($_SESSION["user"])){
-          $account=$_COOKIE["user"];
-          }
-          echo "<h2>".$account."您好"."</h2>";
-        ?>
+        session_start();
+        $account = isset($_COOKIE['user']) ? $_COOKIE['user'] : '';
+        if(isset($_SESSION['user'])){
+          echo "<h2 class='roger'>".$account."您好"."</h2>";
+        }else{
+          // donothing
+        }
+     ?>
         <a href="logout.php"><h2>登出</h2></a>
     </div>
     <div class="clear"></div>

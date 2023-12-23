@@ -13,7 +13,7 @@
             $sql="select signaccount from sign";
             if($result = mysqli_query($link, $sql)){
                 while($row = mysqli_fetch_assoc($result)){
-                    if ($signaccount==$row[signaccount]) {
+                    if ($signaccount==$row['signaccount']) {
                     $flag=1;
             }
           }

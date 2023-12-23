@@ -44,14 +44,13 @@
         </ul>
    </div>
 <?php
-    session_start();
     // Import PHPMailer classes into the global namespace
         // These must be at the top of your script, not inside a function
         use PHPMailer\PHPMailer\PHPMailer;
         use PHPMailer\PHPMailer\Exception;
-        require '/mailer/src/Exception.php';    
-        require '/mailer/src/PHPMailer.php';
-        require '/mailer/src/SMTP.php';
+        require 'Exception.php';    
+        require 'PHPMailer.php';
+        require 'SMTP.php';
         // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
     if(!isset($_SESSION["user"])){
@@ -78,11 +77,11 @@
         echo "</form>";
         echo "</div>";
             
-        $returnname=$_POST["return"];
+        $returnname = isset($_POST["return"]) ? $_POST["return"] : '';
         $sql="select reservename,reservemail from reserve where reservename='$returnname'";
         if ( $result = mysqli_query($link, $sql) ) {
             $row = mysqli_fetch_assoc($result);
-            if(isset($row[reservename])){
+            if(isset($row['reservename'])){
                             try {
                                 //Server settings
                                 $mail->SMTPDebug = 0;                                       // Enable verbose debug output
@@ -125,17 +124,41 @@
         if(isset($returnname)){
         $sql="select * from send where sendname='$returnname'";
         if ( $result = mysqli_query($link, $sql) ) {
+            $SQLCreate='';
             $row = mysqli_fetch_assoc($result);
-            $SQLCreate="INSERT into unsend VALUES('$row[sendno]','$row[sendname]','$row[sendauthor]','$row[sendbookfrom]','$row[sendurl]')";
-            $insertresult = mysqli_query($link, $SQLCreate);  
+            if ($row !== null && isset($row['sendno'], $row['sendname'], $row['sendauthor'], $row['sendbookfrom'], $row['sendurl'])) {
+                $SQLCreate = "INSERT into unsend VALUES('$row[sendno]','$row[sendname]','$row[sendauthor]','$row[sendbookfrom]','$row[sendurl]')";
+                // 执行其他操作
+            } else {
+                // 处理 $row 为 null 或者缺少必要数组元素的情况
+            }
+            
+            //$SQLCreate="INSERT into unsend VALUES('$row[sendno]','$row[sendname]','$row[sendauthor]','$row[sendbookfrom]','$row[sendurl]')";
+            if($SQLCreate!==''){
+                $insertresult = mysqli_query($link, $SQLCreate);  
+            }
         }
         $SQLDelete="DELETE FROM send WHERE sendname='$returnname'";
         $result = mysqli_query($link, $SQLDelete);
-        echo "<script>alert('歸還成功');location.href = 'return.php';</script>";
-    }
         
+        if (isset($returnname) && $returnname !== '') {
+            $checkDuplicateQuery = "SELECT * FROM send WHERE sendname = '$returnname'";
+            $duplicateResult = mysqli_query($link, $checkDuplicateQuery);
+      
+            if ($duplicateResult && mysqli_num_rows($duplicateResult) > 0) {
+                $SQLCreate="INSERT into ask(askaccount,askname,asktitle,askcontent,askdate,replycontent) VALUES('$account','$askname','$asktitle','$askcontent','$date','$replycontent')";
+                $insertresult = mysqli_query($link, $SQLCreate); 
                 
-            
-        
-    
+              if ($insertresult) {
+                echo "<script>alert('歸還成功'); location.href = 'comment.php';</script>";
+              } else {
+                echo "<script>alert('歸還失敗'); location.href = 'comment.php';</script>";
+              }
+            } else {
+                echo "<script>alert('已歸還'); location.href = 'comment.php';</script>";
+            }
+        } else {
+            //donothing
+        }
+    }
 ?>

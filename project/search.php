@@ -45,7 +45,7 @@
    </div>
 </div>
 <?php
-    session_start();
+    //session_start();
     if(!isset($_SESSION["user"])){
         echo "<script>alert('請先登入'); location.href = 'library.php';</script>";
     }
@@ -72,7 +72,8 @@
             echo "<input type=".'submit'.">";
             echo "</form>";
             echo "</div>";
-            $search=$_POST["search"];
+            //$search=$_POST["search"];
+            $search = isset($_POST["search"]) ? $_POST["search"] : '';
             $sql3="SELECT * FROM unsend where unsendname LIKE '%$search%'" ;
             $result3 = mysqli_query($link, $sql3) ;
             $row3 = mysqli_fetch_assoc($result3) ;

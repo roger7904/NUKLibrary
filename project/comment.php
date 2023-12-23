@@ -83,7 +83,6 @@
 </body>
 </html>
 <?php
-        session_start();
         if(!isset($_SESSION["user"])){
             echo "<script>alert('請先登入'); location.href = 'library.php';</script>";
         }
@@ -93,15 +92,35 @@
             'aZxcv7904',  // 密碼
             'phpproject');  // 預設使用的資料庫名稱
             $account=$_COOKIE["user"];
-            $askname=$_POST["askname"];        
-            $asktitle=$_POST["asktitle"];
-            $askcontent=$_POST["askcontent"];
+            $askname = isset($_POST["askname"]) ? $_POST["askname"] : '';
+            $asktitle = isset($_POST["asktitle"]) ? $_POST["asktitle"] : '';
+            $askcontent = isset($_POST["askcontent"]) ? $_POST["askcontent"] : '';
+            $replycontent = isset($_POST["replycontent"]) ? $_POST["replycontent"] : '';
             date_default_timezone_set("Asia/Taipei");
             $date=date("Y/m/d h:i:s");
+            /*
             if(isset($askname)){
-            $SQLCreate="INSERT into ask(askaccount,askname,asktitle,askcontent,askdate) VALUES('$account','$askname','$asktitle','$askcontent','$date')";
+            $SQLCreate="INSERT into ask(askaccount,askname,asktitle,askcontent,askdate,replycontent) VALUES('$account','$askname','$asktitle','$askcontent','$date','$replycontent')";
             $insertresult = mysqli_query($link, $SQLCreate); 
             echo "<script>alert('留言成功'); location.href = 'comment.php';</script>";
+            */
+            if (isset($askcontent) && $askcontent !== '') {
+                $checkDuplicateQuery = "SELECT * FROM ask WHERE askcontent = '$askcontent'";
+                $duplicateResult = mysqli_query($link, $checkDuplicateQuery);
+          
+                if ($duplicateResult && mysqli_num_rows($duplicateResult) > 0) {
+                  echo "<script>alert('留言重複'); location.href = 'recommend.php';</script>";
+                } else {
+                    $SQLCreate="INSERT into ask(askaccount,askname,asktitle,askcontent,askdate,replycontent) VALUES('$account','$askname','$asktitle','$askcontent','$date','$replycontent')";
+                    $insertresult = mysqli_query($link, $SQLCreate); 
+                    
+                  if ($insertresult) {
+                    echo "<script>alert('留言成功'); location.href = 'comment.php';</script>";
+                  } else {
+                    echo "<script>alert('留言失敗'); location.href = 'comment.php';</script>";
+                  }
+                }
+            } else {
+                //donothing
             }
-    
 ?>
