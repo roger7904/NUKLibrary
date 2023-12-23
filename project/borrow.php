@@ -45,7 +45,6 @@
 </div>
 <?php
 //session_start();要做判斷帳號是否一樣
-session_start();
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 if(!isset($_SESSION["user"])){
@@ -62,8 +61,8 @@ $link = mysqli_connect(
     echo "<input type=".'submit'." value=".'我要借閱'.">";
     echo "</form>";
     $unsendno=$_GET["unsendno"];
-    $sendpassword=$_POST["sendpassword"];
-    $sendmail=$_POST["sendmail"];
+    $sendpassword = isset($_POST["sendpassword"]) ? $_POST["sendpassword"] : '';
+    $sendmail = isset($_POST["sendmail"]) ? $_POST["sendmail"] : '';
     $account=$_COOKIE["user"];
     date_default_timezone_set("Asia/Taipei");
     $date=date("Y/m/d h:i:s");
@@ -72,7 +71,7 @@ $link = mysqli_connect(
         $sql="select signpassword from sign where signaccount='$account'";
         if ( $result = mysqli_query($link, $sql) ) {
             $row = mysqli_fetch_assoc($result);
-            if($row[signpassword]==$sendpassword){
+            if($row['signpassword']==$sendpassword){
         $sql="SELECT * FROM unsend where unsendno=$unsendno";
 if ( $result = mysqli_query($link, $sql) ) {
     $row = mysqli_fetch_assoc($result);
@@ -86,7 +85,7 @@ if ( $result = mysqli_query($link, $sql) ) {
     if(isset($sendpassword)){
     if ( $result = mysqli_query($link, $sql) ) {
         $row = mysqli_fetch_assoc($result);
-        if($row[signpassword]==$sendpassword){
+        if($row['signpassword']==$sendpassword){
         $sql="SELECT * FROM unsend where unsendno=$unsendno";
         if ( $result = mysqli_query($link, $sql) ) {
             $row = mysqli_fetch_assoc($result);
@@ -97,7 +96,7 @@ if ( $result = mysqli_query($link, $sql) ) {
             echo "<script>alert('借閱成功，期限到後會以email通知'); location.href ='search.php';</script>";
         }
         
-}
+    }
     else{
         echo "<script>alert('密碼錯誤'); </script>";
     }
