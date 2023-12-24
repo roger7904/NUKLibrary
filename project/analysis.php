@@ -8,8 +8,8 @@
            GROUP BY recordname";
       if ( $result = mysqli_query($link, $SQL) ) {
         while( $row = mysqli_fetch_assoc($result) ){
-        $n1[$i]=$row[recordname];
-        $n2[$i]=$row[num];
+        $n1[$i]=$row['recordname'];
+        $n2[$i]=$row['num'];
         $i++;
     }
   }

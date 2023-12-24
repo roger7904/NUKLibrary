@@ -65,7 +65,6 @@
 </body>
 </html>
 <?php
-    session_start();
     if(!isset($_SESSION["user"])){
         echo "<script>alert('請先登入'); location.href = 'library.php';</script>";
     }
@@ -74,15 +73,33 @@
         'roger',       // 使用者名稱 
         'aZxcv7904',  // 密碼
         'phpproject');  // 預設使用的資料庫名稱
-    $recommendname=$_POST["recommendname"];
-    $recommendauthor=$_POST["recommendauthor"];
-    $recommendbookfrom=$_POST["recommendbookfrom"];
-    $recommendmail=$_POST["recommendmail"];
-    if(isset($recommendname)){
-    $SQLCreate="INSERT into recommend VALUES('$recommendname','$recommendauthor','$recommendbookfrom','$recommendmail')";
-    $insertresult = mysqli_query($link, $SQLCreate);
-    echo "<script>alert('推薦成功，我們會考慮將書目列入館藏'); location.href = 'recommend.php';</script>";
+
+    $recommendname = isset($_POST["recommendname"]) ? $_POST["recommendname"] : '';
+    $recommendauthor = isset($_POST["recommendauthor"]) ? $_POST["recommendauthor"] : '';
+    $recommendbookfrom = isset($_POST["recommendbookfrom"]) ? $_POST["recommendbookfrom"] : '';
+    $recommendmail = isset($_POST["recommendmail"]) ? $_POST["recommendmail"] : '';
+     
+    if (isset($recommendname) && $recommendname !== '') {
+      // 在插入之前检查是否已经存在相同的推荐名字
+      $checkDuplicateQuery = "SELECT * FROM recommend WHERE recommendname = '$recommendname'";
+      $duplicateResult = mysqli_query($link, $checkDuplicateQuery);
+
+      if ($duplicateResult && mysqli_num_rows($duplicateResult) > 0) {
+        // 已经存在相同的推荐名字，处理重复推荐的逻辑
+        echo "<script>alert('該書目已經被推薦過'); location.href = 'recommend.php';</script>";
+      } else {
+        // 不存在相同的推荐名字，执行插入操作
+        $SQLCreate = "INSERT into recommend VALUES('$recommendname','$recommendauthor','$recommendbookfrom','$recommendmail')";
+        $insertresult = mysqli_query($link, $SQLCreate);
+
+        if ($insertresult) {
+            echo "<script>alert('推薦成功，我們會考慮將書目列入館藏'); location.href = 'recommend.php';</script>";
+        } else {
+            echo "<script>alert('插入失敗'); location.href = 'recommend.php';</script>";
+        }
+      }
+    } else {
+      //donothing
     } 
-    
 
 ?>

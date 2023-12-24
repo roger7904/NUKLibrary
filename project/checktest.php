@@ -10,7 +10,7 @@ $link = mysqli_connect(
     $sql="SELECT * FROM sign";
     if ( $result = mysqli_query($link, $sql) ) {
         while( $row = mysqli_fetch_assoc($result) ){ 
-            if($account==$row[signaccount] && $password==$row[signpassword]){
+            if($account==$row['signaccount'] && $password==$row['signpassword']){
                 $flag=1;
             }
     }

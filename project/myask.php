@@ -63,7 +63,6 @@
         <h2 style="background-color:#F5F290;"><a href="myask.php">我的留言</a></h2>
     </div>
 <?php
-    session_start();
     if(!isset($_SESSION["user"])){
       echo "<script>alert('請先登入'); location.href = 'library.php';</script>";
   }

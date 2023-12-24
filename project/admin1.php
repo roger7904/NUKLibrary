@@ -43,9 +43,9 @@
 <?php
  use PHPMailer\PHPMailer\PHPMailer;
  use PHPMailer\PHPMailer\Exception;
- require '/mailer/src/Exception.php';    
- require '/mailer/src/PHPMailer.php';
- require '/mailer/src/SMTP.php';
+ require 'Exception.php';    
+ require 'PHPMailer.php';
+ require 'SMTP.php';
  // Instantiation and passing `true` enables exceptions
  $mail = new PHPMailer(true);
         $link = mysqli_connect( 
@@ -53,17 +53,33 @@
             'roger',       // 使用者名稱 
             'aZxcv7904',  // 密碼
             'phpproject');  // 預設使用的資料庫名稱
-            $allname=$_POST["allname"];
-            $allauthor=$_POST["allauthor"];
-            $allbookfrom=$_POST["allbookfrom"];
-            $allurl=$_POST["allurl"];
+            //$unsendno = isset($_POST["unsendno"]) ? $_POST["unsendno"] : 0;
+            $allname = isset($_POST["allname"]) ? $_POST["allname"] : '';
+            $allauthor = isset($_POST["allauthor"]) ? $_POST["allauthor"] : '';
+            $allbookfrom = isset($_POST["allbookfrom"]) ? $_POST["allbookfrom"] : '';
+            $allurl = isset($_POST["allurl"]) ? $_POST["allurl"] : '';
+
             if (isset($allname)) {
                 $SQLCreate="INSERT into allbooks(allname,allauthor,allbookfrom,allurl) VALUES('$allname','$allauthor','$allbookfrom','$allurl')";
             $insertresult = mysqli_query($link, $SQLCreate);
             }
             if (isset($allname)) {
-                $SQLCreate="INSERT into unsend(unsendname,unsendauthor,unsendbookfrom,unsendurl) VALUES('$allname','$allauthor','$allbookfrom','$allurl')";
-            $insertresult = mysqli_query($link, $SQLCreate);
+                $query = "SELECT MAX(unsendno) as max_unsendno FROM unsend";
+                $result = mysqli_query($link, $query);
+
+                if ($result) {
+                    $row = mysqli_fetch_assoc($result);
+                    $max_unsendno = $row['max_unsendno'];
+
+                    // 如果没有记录，将 'unsendno' 设置为1，否则加1
+                    $unsendno = ($max_unsendno !== null) ? $max_unsendno + 1 : 1;
+
+                    // 插入新记录
+                    $SQLCreate = "INSERT into unsend(unsendno, unsendname, unsendauthor, unsendbookfrom, unsendurl) VALUES ('$unsendno', '$allname', '$allauthor', '$allbookfrom', '$allurl')";
+                    $insertresult = mysqli_query($link, $SQLCreate);
+                } 
+                //$SQLCreate="INSERT into unsend(unsendname,unsendauthor,unsendbookfrom,unsendurl) VALUES('$allname','$allauthor','$allbookfrom','$allurl')";
+                //$insertresult = mysqli_query($link, $SQLCreate);
             }
             
             $sql="SELECT * FROM allbooks"; 
@@ -78,7 +94,7 @@
             $sql="select * from recommend where recommendname='$allname'";
             if ( $result = mysqli_query($link, $sql) ) {
                 $row = mysqli_fetch_assoc($result);
-                if(isset($row[recommendname])){
+                if(isset($row['recommendname'])){
 
             try {
                 //Server settings
@@ -93,7 +109,7 @@
             
                 //Recipients
                 $mail->setFrom('from@example.com', 'LibraryAdmin');
-                $mail->addAddress($row[recommendmail]);     // Add a recipient
+                $mail->addAddress($row['recommendmail']);     // Add a recipient
                 $mail->addAddress('ellen@example.com');               // Name is optional
                 $mail->addReplyTo('info@example.com', 'Information');
                 $mail->addCC('cc@example.com');
@@ -108,7 +124,7 @@
                 $subject="=?UTF-8?B?".base64_encode($subject)."?=";
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = $subject;
-                $mail->Body    = nl2br('您所推薦的書籍'.$row[recommendname].'已增加館藏');
+                $mail->Body    = nl2br('您所推薦的書籍'.$row['recommendname'].'已增加館藏');
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             
                 $mail->send();
