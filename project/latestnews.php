@@ -65,7 +65,7 @@
                 <ul>
           <?php
           $link = mysqli_connect( 
-            'localhost',  // MySQL主機名稱 
+            'db',  // MySQL主機名稱 
             'roger',       // 使用者名稱 
             'aZxcv7904',  // 密碼
             'phpproject');  // 預設使用的資料庫名稱
@@ -86,7 +86,7 @@
                     <ul>
                     <?php
           $link = mysqli_connect( 
-            'localhost',  // MySQL主機名稱 
+            'db',  // MySQL主機名稱 
             'roger',       // 使用者名稱 
             'aZxcv7904',  // 密碼
             'phpproject');  // 預設使用的資料庫名稱

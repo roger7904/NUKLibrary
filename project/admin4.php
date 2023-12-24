@@ -27,7 +27,7 @@
     <hr size="3px" width="100%" color="#F5F290">   
 </div>
 <?php
-        $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
+        $link = mysqli_connect('db','roger', 'aZxcv7904','phpproject');
         $SQL="SELECT *
            FROM ask";
         echo "<table width=70% border=3 class='ta' bgcolor=#e0e0e0 style='font-size:22px;border:1px #f0f0f0 solid;border-collapse:collapse;' rules='all' cellpadding='10px';>";

@@ -2,7 +2,7 @@
 session_start();
         $n=0;
          $nn=0;
-          $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
+          $link = mysqli_connect('db','roger', 'aZxcv7904','phpproject');
           $SQL="SELECT count(rr.reserveno) as reserveno
                 FROM reserve rr";
            if ( $result = mysqli_query($link, $SQL) ) {
@@ -10,7 +10,7 @@ session_start();
              $nn=$row['reserveno'];
          }
        }
-       $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
+       $link = mysqli_connect('db','roger', 'aZxcv7904','phpproject');
        $SQL="SELECT count(r.account) as account
              FROM record r";
         if ( $result = mysqli_query($link, $SQL) ) {
@@ -48,7 +48,7 @@ session_start();
         $i=0;
         $n2=array();
         $n3=array();
-         $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
+         $link = mysqli_connect('db','roger', 'aZxcv7904','phpproject');
          $SQL="SELECT recordname, MIN(recordurl) as recordurl
                FROM record
                GROUP BY recordname
@@ -198,7 +198,7 @@ session_start();
     <ul>
           <?php
           $link = mysqli_connect( 
-            'localhost',  // MySQL主機名稱 
+            'db',  // MySQL主機名稱 
             'roger',       // 使用者名稱 
             'aZxcv7904',  // 密碼
             'phpproject');  // 預設使用的資料庫名稱
@@ -291,7 +291,7 @@ session_start();
   require 'SMTP.php';
   // Instantiation and passing `true` enables exceptions
   $link = mysqli_connect( 
-    'localhost',  // MySQL主機名稱 
+    'db',  // MySQL主機名稱 
     'roger',       // 使用者名稱 
     'aZxcv7904',  // 密碼
     'phpproject');  // 預設使用的資料庫名稱

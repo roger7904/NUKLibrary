@@ -37,7 +37,7 @@
    <?php
     $asktitle = isset($_POST["asktitle"]) ? $_POST["asktitle"] : '';
     $comment = isset($_POST["comment"]) ? $_POST["comment"] : '';
-    $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
+    $link = mysqli_connect('db','roger', 'aZxcv7904','phpproject');
     mysqli_set_charset($link, "UTF8");
     if(isset($comment)){
         $sqlupdate="UPDATE ask SET replycontent='$comment' WHERE asktitle='$asktitle'";

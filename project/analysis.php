@@ -2,7 +2,7 @@
     $n1=array();
     $i=0;
     $n2=array();
-     $link = mysqli_connect('localhost','roger', 'aZxcv7904','phpproject');
+     $link = mysqli_connect('db','roger', 'aZxcv7904','phpproject');
      $SQL="SELECT recordname,count(recordname) as num
            FROM record
            GROUP BY recordname";

@@ -4,7 +4,7 @@
         echo "<script>alert('請先登入'); location.href = 'library.php';</script>";
     }
     $link = mysqli_connect( 
-    'localhost',   
+    'db',   
     'roger',        
     'aZxcv7904',  
     'phpproject');  
